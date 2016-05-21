@@ -1,8 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// Singleton Music Player persisted among scenes
+/// </summary>
 public class MusicPlayer : MonoBehaviour {
 
+	/// <summary>
+	/// The instance
+	/// </summary>
 	static MusicPlayer instance = null;
 
 	void Awake() {
@@ -12,10 +18,5 @@ public class MusicPlayer : MonoBehaviour {
 			instance = this;
 			GameObject.DontDestroyOnLoad (gameObject);
 		}
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
 	}
 }
