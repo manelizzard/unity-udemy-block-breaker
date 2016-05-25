@@ -22,4 +22,11 @@ public class LevelManager : MonoBehaviour {
 		Debug.Log ("Quit request");
 		Application.Quit ();
 	}
+
+	/// <summary>
+	/// Loads the next level.
+	/// </summary>
+	public void LoadNextLevel() {
+		Application.LoadLevel (Application.loadedLevel + 1);
+	}
 }

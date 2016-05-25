@@ -7,10 +7,12 @@ public class Brik : MonoBehaviour {
 
 	private int timesHits;
 
+	private LevelManager levelManager;
+
 	// Use this for initialization
 	void Start () {
 		timesHits = 0;
-
+		levelManager = GameObject.FindObjectOfType<LevelManager> ();
 	}
 	
 	// Update is called once per frame
@@ -21,8 +23,11 @@ public class Brik : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D collision) {
 		timesHits++;
 
-		if (timesHits == maxHits) {
-			Destroy (this);
-		}
+		SimulateWin ();
+	}
+
+	// TODO: Remove this method once we can actually win
+	void SimulateWin() {
+		levelManager.LoadNextLevel ();
 	}
 }
