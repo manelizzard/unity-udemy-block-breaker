@@ -23,11 +23,12 @@ public class Brik : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D collision) {
 		timesHits++;
 
-		SimulateWin ();
-	}
+		if (timesHits >= maxHits) {
+			Destroy (gameObject);
 
-	// TODO: Remove this method once we can actually win
-	void SimulateWin() {
-		levelManager.LoadNextLevel ();
+			if (GameObject.Find("Brik") == null) {
+				levelManager.LoadNextLevel ();
+			}
+		}
 	}
 }
