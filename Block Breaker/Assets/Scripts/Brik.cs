@@ -22,7 +22,7 @@ public class Brik : MonoBehaviour {
 	
 	}
 
-	void OnCollisionEnter2D(Collision2D collision) {
+	void OnCollisionExit2D(Collision2D collision) {
 		timesHits++;
 
 		if (timesHits >= maxHits) {
