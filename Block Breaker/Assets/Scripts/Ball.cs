@@ -28,4 +28,14 @@ public class Ball : MonoBehaviour {
 			}
 		}
 	}
+
+	void OnCollisionEnter2D(Collision2D col) {
+
+		Vector2 tweak = new Vector2 (Random.Range(0f, 0.2f), Random.Range(0f, 0.2f));
+
+		if (hasStarted) {
+			//GetComponent<AudioSource> ().Play ();
+			this.GetComponent<Rigidbody2D>().velocity += tweak;
+		}
+	}
 }

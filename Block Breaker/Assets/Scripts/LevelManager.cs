@@ -29,4 +29,13 @@ public class LevelManager : MonoBehaviour {
 	public void LoadNextLevel() {
 		Application.LoadLevel (Application.loadedLevel + 1);
 	}
+
+	/// <summary>
+	/// Notifies a brick has been destroyed and decides to load next level.
+	/// </summary>
+	public void BrickDestroyed() {
+		if (Brik.breakableCount <= 0) {
+			LoadNextLevel ();
+		}
+	}
 }
