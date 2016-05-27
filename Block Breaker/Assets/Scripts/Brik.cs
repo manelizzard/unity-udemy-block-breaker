@@ -5,6 +5,8 @@ public class Brik : MonoBehaviour {
 
 	public int maxHits;
 
+	public Sprite[] hitSprites;
+
 	private int timesHits;
 
 	private LevelManager levelManager;
@@ -20,15 +22,18 @@ public class Brik : MonoBehaviour {
 	
 	}
 
-	void OnCollisionEnter2D(Collision2D collision) {
+	void OnCollisionExit2D(Collision2D collision) {
 		timesHits++;
 
 		if (timesHits >= maxHits) {
 			Destroy (gameObject);
-
-			if (GameObject.Find("Brik") == null) {
-				levelManager.LoadNextLevel ();
-			}
+		} else {
+			LoadSprites ();
 		}
+	}
+
+	void LoadSprites() {
+		int spriteIndex = timesHits - 1;
+		this.GetComponent<SpriteRenderer> ().sprite = hitSprites [spriteIndex];
 	}
 }
